@@ -1,11 +1,14 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/sme62/IdeaProjects/animalShelter/animalShelter.csproj",
-    "projectName": "animalShelter",
-    "projectPath": "/Users/sme62/IdeaProjects/animalShelter/animalShelter.csproj",
-    "outputPath": "/Users/sme62/IdeaProjects/animalShelter/obj/",
+    "projectUniqueName": "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/animalShelter.csproj",
+    "projectName": "AnimalShelter",
+    "projectPath": "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/animalShelter.csproj",
+    "outputPath": "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/obj/",
     "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
     "originalTargetFrameworks": [
       "netcoreapp3.0"
     ],
@@ -53,6 +56,10 @@
         "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
           "target": "Package",
           "version": "[3.0.0, )"
+        },
+        "Stripe.net": {
+          "target": "Package",
+          "version": "[34.7.0, )"
         }
       },
       "imports": [

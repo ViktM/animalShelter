@@ -19,7 +19,6 @@ namespace animalShelter.Pages
 
         public void OnGet()
         {
-
         }
     }
 }

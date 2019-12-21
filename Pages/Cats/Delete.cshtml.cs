@@ -1,26 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using animalShelter.Data;
+using animalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using animalShelter.Data;
-using animalShelter.Models;
 
 namespace animalShelter.Pages.Cats
 {
     public class DeleteModel : PageModel
     {
-        private readonly animalShelter.Data.AnimalShelterContext _context;
+        private readonly AnimalShelterContext _context;
 
-        public DeleteModel(animalShelter.Data.AnimalShelterContext context)
+        public DeleteModel(AnimalShelterContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-        public Cat Cat { get; set; }
+        [BindProperty] public Cat Cat { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,6 +31,7 @@ namespace animalShelter.Pages.Cats
             {
                 return NotFound();
             }
+
             return Page();
         }
 

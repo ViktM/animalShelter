@@ -8,43 +8,43 @@
 <h1>Create</h1>
 
 <h4>Cat</h4>
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Cat.Name" class="control-label"></label>
-                <input asp-for="Cat.Name" class="form-control" />
+                <input asp-for="Cat.Name" class="form-control"/>
                 <span asp-validation-for="Cat.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cat.Dob" class="control-label"></label>
-                <input asp-for="Cat.Dob" class="form-control" />
+                <input asp-for="Cat.Dob" class="form-control"/>
                 <span asp-validation-for="Cat.Dob" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cat.Breed" class="control-label"></label>
-                <input asp-for="Cat.Breed" class="form-control" />
+                <input asp-for="Cat.Breed" class="form-control"/>
                 <span asp-validation-for="Cat.Breed" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cat.Sex" class="control-label"></label>
-                <input asp-for="Cat.Sex" class="form-control" />
+                <input asp-for="Cat.Sex" class="form-control"/>
                 <span asp-validation-for="Cat.Sex" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cat.Summary" class="control-label"></label>
-                <input asp-for="Cat.Summary" class="form-control" />
+                <input asp-for="Cat.Summary" class="form-control"/>
                 <span asp-validation-for="Cat.Summary" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cat.ImageUrl" class="control-label"></label>
-                <input asp-for="Cat.ImageUrl" class="form-control" />
+                <input asp-for="Cat.ImageUrl" class="form-control"/>
                 <span asp-validation-for="Cat.ImageUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary"/>
             </div>
         </form>
     </div>
@@ -55,5 +55,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

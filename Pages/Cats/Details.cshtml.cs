@@ -1,20 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using animalShelter.Data;
+using animalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using animalShelter.Data;
-using animalShelter.Models;
 
 namespace animalShelter.Pages.Cats
 {
     public class DetailsModel : PageModel
     {
-        private readonly animalShelter.Data.AnimalShelterContext _context;
+        private readonly AnimalShelterContext _context;
 
-        public DetailsModel(animalShelter.Data.AnimalShelterContext context)
+        public DetailsModel(AnimalShelterContext context)
         {
             _context = context;
         }
@@ -34,6 +31,7 @@ namespace animalShelter.Pages.Cats
             {
                 return NotFound();
             }
+
             return Page();
         }
     }

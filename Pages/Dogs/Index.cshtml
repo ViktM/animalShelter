@@ -2,40 +2,58 @@
 @model animalShelter.Pages.Dogs.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Dogs";
 }
 
-<h1>Index</h1>
+<h1>Dogs</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter"/>
+            <input type="submit" value="Search" class="btn btn-primary"/> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Dog[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dog[0].Dob)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dog[0].Breed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dog[0].Sex)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dog[0].Summary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dog[0].ImageUrl)
-            </th>
-            <th></th>
-        </tr>
+    <th>
+        <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+           asp-route-currentFilter="@Model.CurrentFilter">
+            @Html.DisplayNameFor(model => model.Dogs[0].Name)
+        </a>
+    </th>
+    <th>
+        <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
+           asp-route-currentFilter="@Model.CurrentFilter">
+            @Html.DisplayNameFor(model => model.Dogs[0].Dob)
+        </a>
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Dogs[0].Breed)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Dogs[0].Sex)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Dogs[0].Summary)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Dogs[0].ImageUrl)
+    </th>
+    <th></th>
+
     </thead>
     <tbody>
-@foreach (var item in Model.Dog) {
+    @foreach (var item in Model.Dogs)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -56,11 +74,31 @@
                 @Html.DisplayFor(modelItem => item.ImageUrl)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.DogID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.DogID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.DogID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.Dogs.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Dogs.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Dogs.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Dogs.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>

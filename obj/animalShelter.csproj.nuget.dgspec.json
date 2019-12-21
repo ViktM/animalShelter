@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sme62/IdeaProjects/animalShelter/animalShelter.csproj": {}
+    "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/animalShelter.csproj": {}
   },
   "projects": {
-    "/Users/sme62/IdeaProjects/animalShelter/animalShelter.csproj": {
+    "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/animalShelter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sme62/IdeaProjects/animalShelter/animalShelter.csproj",
-        "projectName": "animalShelter",
-        "projectPath": "/Users/sme62/IdeaProjects/animalShelter/animalShelter.csproj",
-        "packagesPath": "/Users/sme62/.nuget/packages/",
-        "outputPath": "/Users/sme62/IdeaProjects/animalShelter/obj/",
+        "projectUniqueName": "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/animalShelter.csproj",
+        "projectName": "AnimalShelter",
+        "projectPath": "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/animalShelter.csproj",
+        "packagesPath": "/Users/lda49/.nuget/packages/",
+        "outputPath": "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/sme62/.config/NuGet/NuGet.Config"
+          "/Users/lda49/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
@@ -63,6 +66,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[34.7.0, )"
             }
           },
           "imports": [

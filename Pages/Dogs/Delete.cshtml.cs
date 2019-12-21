@@ -1,40 +1,45 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using animalShelter.Data;
+using animalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using animalShelter.Data;
-using animalShelter.Models;
 
 namespace animalShelter.Pages.Dogs
 {
     public class DeleteModel : PageModel
     {
-        private readonly animalShelter.Data.AnimalShelterContext _context;
+        private readonly AnimalShelterContext _context;
 
-        public DeleteModel(animalShelter.Data.AnimalShelterContext context)
+        public DeleteModel(AnimalShelterContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-        public Dog Dog { get; set; }
+        [BindProperty] public Dog Dog { get; set; }
+        public string ErrorMessage { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Dog = await _context.Dogs.FirstOrDefaultAsync(m => m.DogID == id);
+            Dog = await _context.Dogs
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ID == id);
 
             if (Dog == null)
             {
                 return NotFound();
             }
+
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ErrorMessage = "Delete failed. Try again";
+            }
+
             return Page();
         }
 
@@ -45,15 +50,24 @@ namespace animalShelter.Pages.Dogs
                 return NotFound();
             }
 
-            Dog = await _context.Dogs.FindAsync(id);
+            var dog = await _context.Dogs.FindAsync(id);
 
-            if (Dog != null)
+            if (dog == null)
             {
-                _context.Dogs.Remove(Dog);
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            try
+            {
+                _context.Dogs.Remove(dog);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+            catch (DbUpdateException)
+            {
+                return RedirectToAction("./Delete",
+                    new {id, saveChangesError = true});
+            }
         }
     }
 }

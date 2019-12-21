@@ -1,20 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using animalShelter.Data;
+using animalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using animalShelter.Data;
-using animalShelter.Models;
 
 namespace animalShelter.Pages.Dogs
 {
     public class DetailsModel : PageModel
     {
-        private readonly animalShelter.Data.AnimalShelterContext _context;
+        private readonly AnimalShelterContext _context;
 
-        public DetailsModel(animalShelter.Data.AnimalShelterContext context)
+        public DetailsModel(AnimalShelterContext context)
         {
             _context = context;
         }
@@ -28,12 +25,16 @@ namespace animalShelter.Pages.Dogs
                 return NotFound();
             }
 
-            Dog = await _context.Dogs.FirstOrDefaultAsync(m => m.DogID == id);
+            Dog = await _context.Dogs
+                .Include(d => d.Adoptions)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ID == id);
 
             if (Dog == null)
             {
                 return NotFound();
             }
+
             return Page();
         }
     }

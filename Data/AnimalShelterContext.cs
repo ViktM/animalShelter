@@ -1,37 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using animalShelter.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace animalShelter.Data
 {
     public class AnimalShelterContext : DbContext
     {
-        public AnimalShelterContext (DbContextOptions<AnimalShelterContext> options)
+        public AnimalShelterContext(DbContextOptions<AnimalShelterContext> options)
             : base(options)
         {
         }
 
         public DbSet<Cat> Cats { get; set; }
-
-        public DbSet<Dog> Dogs { get; set; }
-        
         public DbSet<CatAdoption> CatAdoptions { get; set; }
-        
-        public DbSet<DogAdoption> DogAdoptions { get; set; }
-        
+        public DbSet<Adoption> Adoptions { get; set; }
+        public DbSet<Dog> Dogs { get; set; }
         public DbSet<User> Users { get; set; }
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<Adoption>().ToTable("Adoption");
             modelBuilder.Entity<Dog>().ToTable("Dog");
-            modelBuilder.Entity<DogAdoption>().ToTable("DogAdoption");
+            modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<Cat>().ToTable("Cat");
             modelBuilder.Entity<CatAdoption>().ToTable("CatAdoption");
         }
-        
     }
 }

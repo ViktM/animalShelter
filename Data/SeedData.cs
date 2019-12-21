@@ -3,10 +3,11 @@ using System.Linq;
 using animalShelter.Models;
 
 namespace animalShelter.Data
+
 {
-    public class SeedData
+    public static class SeedData
     {
-         public static void Initialise(AnimalShelterContext context)
+        public static void Initialise(AnimalShelterContext context)
         {
             context.Database.EnsureCreated();
 
@@ -28,17 +29,12 @@ namespace animalShelter.Data
                     Summary = "Even fluffier!", ImageUrl = "www.dexter.com/dexter.jpg"
                 }
             };
-            foreach (Dog dog in dogs)
+            foreach (Dog d in dogs)
             {
-                context.Dogs.Add(dog);
+                context.Dogs.Add(d);
             }
 
             context.SaveChanges();
-            
-            if (context.Cats.Any())
-            {
-                return; 
-            }
 
             var cats = new Cat[]
             {
@@ -75,35 +71,42 @@ namespace animalShelter.Data
                     Email = "yogaiscool@gmail.com", Telephone = "2345678901", IsAdmin = true
                 }
             };
-            foreach (User user in users)
+            foreach (User u in users)
             {
-                context.Users.Add(user);
+                context.Users.Add(u);
+            }
+
+            context.SaveChanges();
+
+            var adoptions = new Adoption[]
+            {
+                new Adoption
+                {
+                    DogID = dogs.Single(i => i.ID == 1).ID,
+                    UserID = users.Single(i => i.ID == 2).ID,
+                    AdoptionDate = DateTime.Parse("2019-12-14")
+                }
+            };
+
+            foreach (Adoption adoption in adoptions)
+            {
+                context.Adoptions.Add(adoption);
             }
 
             context.SaveChanges();
 
             var catAdoptions = new CatAdoption[]
             {
-                new CatAdoption {CatID = cats.Single(i => i.CatID == 1).CatID , 
-                                 UserID = users.Single(i => i.Id == 1).Id, 
-                                 AdoptionDate = DateTime.Parse("2019-12-14")}
+                new CatAdoption
+                {
+                    CatID = cats.Single(i => i.CatID == 1).CatID,
+                    UserID = users.Single(i => i.ID == 1).ID,
+                    AdoptionDate = DateTime.Parse("2019-12-14")
+                }
             };
             foreach (CatAdoption catAdoption in catAdoptions)
             {
                 context.CatAdoptions.Add(catAdoption);
-            }
-
-            context.SaveChanges();
-            
-            var dogAdoptions = new DogAdoption[]
-            {
-                new DogAdoption {DogID = dogs.Single(i => i.DogID == 1).DogID, 
-                                 UserID = users.Single(i => i.Id == 2).Id, 
-                                 AdoptionDate = DateTime.Parse("2019-12-14")}
-            };
-            foreach (DogAdoption dogAdoption in dogAdoptions)
-            {
-                context.DogAdoptions.Add(dogAdoption);
             }
 
             context.SaveChanges();

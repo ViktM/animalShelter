@@ -1,0 +1,61 @@
+@page
+@model animalShelter.Pages.Payment
+
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<div class="row">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">DESCRIPTION</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">DESCRIPTION</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Invite a pet for dinner!</h5>
+            <p class="card-text">Please donate £2.5 and invite a pet for tasty dinner</p>
+            <button
+                class="btn btn-primary"
+                id="checkout-button-sku_GNvCSExh60khi5"
+                role="link">
+                I want to donate £2.5!
+            </button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div id="error-message"></div>
+</div>
+<script>
+(function() {
+  var stripe = Stripe('pk_test_Wo3igAYKGtt9805nnsnmPC3n00WBO61Fyw');
+  var checkoutButton = document.getElementById('checkout-button-sku_GNvCSExh60khi5');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_GNvCSExh60khi5', quantity: 1}],
+      successUrl: 'https://localhost:5001/',
+      cancelUrl: 'https://localhost:5001/',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>

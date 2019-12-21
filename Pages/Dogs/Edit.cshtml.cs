@@ -1,27 +1,23 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using animalShelter.Data;
 using animalShelter.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace animalShelter.Pages.Dogs
 {
     public class EditModel : PageModel
     {
-        private readonly animalShelter.Data.AnimalShelterContext _context;
+        private readonly AnimalShelterContext _context;
 
-        public EditModel(animalShelter.Data.AnimalShelterContext context)
+        public EditModel(AnimalShelterContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-        public Dog Dog { get; set; }
+        [BindProperty] public Dog Dog { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,19 +26,36 @@ namespace animalShelter.Pages.Dogs
                 return NotFound();
             }
 
-            Dog = await _context.Dogs.FirstOrDefaultAsync(m => m.DogID == id);
+            Dog = await _context.Dogs.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Dog == null)
             {
                 return NotFound();
             }
+
             return Page();
         }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
+            var dogToUpdate = await _context.Dogs.FindAsync(id);
+
+            if (dogToUpdate == null)
+            {
+                return NotFound();
+            }
+
+            if (await TryUpdateModelAsync<Dog>(
+                dogToUpdate,
+                "dog",
+                d => d.Name, d => d.Breed, d => d.Sex,
+                d => d.Summary, d => d.ImageUrl, d => d.Adoptions))
+
+            {
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -56,7 +69,7 @@ namespace animalShelter.Pages.Dogs
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DogExists(Dog.DogID))
+                if (!DogExists(Dog.ID))
                 {
                     return NotFound();
                 }
@@ -71,7 +84,7 @@ namespace animalShelter.Pages.Dogs
 
         private bool DogExists(int id)
         {
-            return _context.Dogs.Any(e => e.DogID == id);
+            return _context.Dogs.Any(e => e.ID == id);
         }
     }
 }
