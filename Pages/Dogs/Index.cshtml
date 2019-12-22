@@ -6,6 +6,25 @@
 }
 
 <h1>Dogs</h1>
+<div class="container">
+<div class="row">
+    @foreach (var item in Model.Dogs)
+    {
+        <div class="col-sm-3">
+            <div class="card border-secondary mb-3" style="...">
+                <img class="card-img-top" src="https://placedog.net/800/640?id=26" alt="Card image">
+                <div class="card-body">
+                    @* <img class="card-image" src="@Html.DisplayFor(modelItem => item.ImageUrl"> *@
+                    <h2 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h2>
+                    <h5 class="card-breed">breed:@Html.DisplayFor(modelItem => item.Breed)</h5>
+                    <h5 class="card-sex">sex: @Html.DisplayFor(modelItem => item.Sex)</h5>
+                    <p class="card-summary">@Html.DisplayFor(modelItem => item.Summary)
+                </div>
+            </div>
+        </div>
+    }
+</div>
+</div>
 
 <p>
     <a asp-page="Create">Create New</a>
