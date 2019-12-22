@@ -49,7 +49,7 @@ namespace animalShelter.Pages.Dogs
                 dogToUpdate,
                 "dog",
                 d => d.Name, d => d.Breed, d => d.Sex,
-                d => d.Summary, d => d.ImageUrl, d => d.DogAdoptions))
+                d => d.Summary, d => d.DogAdoptions))
 
             {
                 await _context.SaveChangesAsync();

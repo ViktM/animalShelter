@@ -39,15 +39,10 @@
                 <span asp-validation-for="Dog.Summary" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Dog.ImageUrl" class="control-label"></label>
-                <input asp-for="Dog.ImageUrl" class="form-control"/>
-                <span asp-validation-for="Dog.ImageUrl" class="text-danger"></span>
+                <label asp-for="Dog.MainImage" class="control-label"></label>
+                <input asp-for="Dog.MainImage" class="form-control" type="file" accept="image/*"/>
+                <span asp-validation-for="Dog.MainImage" class="text-danger"></span>
             </div>
-             <div class="form-group">
-                            <label asp-for="Dog.MainImage" class="control-label"></label>
-                            <input asp-for="Dog.MainImage" class="form-control" type="file" accept="image/*"/>
-                            <span asp-validation-for="Dog.MainImage" class="text-danger"></span>
-                        </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary"/>
             </div>

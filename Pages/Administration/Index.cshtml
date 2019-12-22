@@ -48,7 +48,7 @@
         @Html.DisplayNameFor(model => model.Dogs[0].Summary)
     </th>
     <th>
-        @Html.DisplayNameFor(model => model.Dogs[0].ImageUrl)
+        @Html.DisplayNameFor(model => model.Dogs[0].MainImagePath)
     </th>
     <th></th>
 
@@ -73,7 +73,7 @@
                 @Html.DisplayFor(modelItem => item.Summary)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
+                @Html.DisplayFor(modelItem => item.MainImagePath)
             </td>
             <td>
                 <a asp-page="../Dogs/Edit" asp-route-id="@item.DogID">Edit</a> |

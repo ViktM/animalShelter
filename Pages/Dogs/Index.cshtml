@@ -27,9 +27,9 @@
             <div class="col-sm-6 col-md-4">
                 <div class="card border-secondary mb-3" style="...">
                     
-                    @if (item.ImageUrl!= null)
+                    @if (item.MainImagePath!= null)
                     {
-                        <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="Card image">
+                        <img class="card-img-top" src="/uploads/@item.MainImagePath"  alt="dogImage">
                     }
                     else
                     {

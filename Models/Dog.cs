@@ -27,9 +27,6 @@ namespace animalShelter.Models
         [Display(Name = "Summary")] 
         public string Summary { get; set; }
 
-        [Display(Name = "Image")] 
-        public string ImageUrl { get; set; }
-        
         [Display(Name = "DogImage")] 
         public string MainImagePath { get; set; }
         

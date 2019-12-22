@@ -21,12 +21,12 @@ namespace animalShelter.Data
                 new Dog
                 {
                     Name = "Gizmo", Dob = DateTime.Parse("2012-12-25"), Breed = "Mixed", Sex = "m",
-                    Summary = "A cute and fluffy dog", ImageUrl = "https://placedog.net/800/640?id=39"
+                    Summary = "A cute and fluffy dog"
                 },
                 new Dog
                 {
                     Name = "Dexter", Dob = DateTime.Parse("2016-02-14"), Breed = "Chow Chow", Sex = "m",
-                    Summary = "Even fluffier!", ImageUrl = "https://placedog.net/800/640?id=60"
+                    Summary = "Even fluffier!"
                 }
             };
             foreach (Dog d in dogs)
