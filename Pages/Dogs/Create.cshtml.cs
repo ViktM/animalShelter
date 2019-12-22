@@ -1,3 +1,4 @@
+using System.IO;
 using System.Threading.Tasks;
 using animalShelter.Data;
 using animalShelter.Models;
@@ -25,7 +26,17 @@ namespace animalShelter.Pages.Dogs
         public async Task<IActionResult> OnPostAsync()
         {
             var emptyDog = new Dog();
-            if (await TryUpdateModelAsync<Dog>(emptyDog, "dog",
+            
+            var path = Path.Combine(
+                Directory.GetCurrentDirectory(), "wwwroot/uploads",
+                Dog.MainImage.FileName);
+                var memory= new MemoryStream();
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await Dog.MainImage.CopyToAsync(stream);
+                    emptyDog.ImageUrl = Dog.MainImage.FileName;
+                }
+                if (await TryUpdateModelAsync<Dog>(emptyDog, "dog",
                 d => d.Name, d => d.Breed, d => d.Sex, 
                 d => d.Summary, d => d.ImageUrl, d => d.DogAdoptions))
 
