@@ -53,7 +53,7 @@ namespace animalShelter.Pages.Dogs
 
             {
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("../Administration/Index");
             }
 
             if (!ModelState.IsValid)
@@ -79,7 +79,7 @@ namespace animalShelter.Pages.Dogs
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("../Administration/Index");
         }
 
         private bool DogExists(int id)

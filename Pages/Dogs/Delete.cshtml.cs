@@ -61,7 +61,7 @@ namespace animalShelter.Pages.Dogs
             {
                 _context.Dogs.Remove(dog);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("../Administration/Index");
             }
             catch (DbUpdateException)
             {
