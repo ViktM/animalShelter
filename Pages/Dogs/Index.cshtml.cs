@@ -64,7 +64,7 @@ namespace animalShelter.Pages.Dogs
                     break;
             }
 
-            int pageSize = 5;
+            int pageSize = 6;
             Dogs = await PaginatedList<Dog>.CreateAsync(
                 dogsIq.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
