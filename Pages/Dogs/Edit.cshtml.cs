@@ -26,7 +26,7 @@ namespace animalShelter.Pages.Dogs
                 return NotFound();
             }
 
-            Dog = await _context.Dogs.FirstOrDefaultAsync(m => m.ID == id);
+            Dog = await _context.Dogs.FirstOrDefaultAsync(m => m.DogID == id);
 
             if (Dog == null)
             {
@@ -49,7 +49,7 @@ namespace animalShelter.Pages.Dogs
                 dogToUpdate,
                 "dog",
                 d => d.Name, d => d.Breed, d => d.Sex,
-                d => d.Summary, d => d.ImageUrl, d => d.Adoptions))
+                d => d.Summary, d => d.ImageUrl, d => d.DogAdoptions))
 
             {
                 await _context.SaveChangesAsync();
@@ -69,7 +69,7 @@ namespace animalShelter.Pages.Dogs
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DogExists(Dog.ID))
+                if (!DogExists(Dog.DogID))
                 {
                     return NotFound();
                 }
@@ -84,7 +84,7 @@ namespace animalShelter.Pages.Dogs
 
         private bool DogExists(int id)
         {
-            return _context.Dogs.Any(e => e.ID == id);
+            return _context.Dogs.Any(e => e.DogID == id);
         }
     }
 }

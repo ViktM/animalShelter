@@ -312,3 +312,5 @@
 /Users/lda49/OneDrive - Sky/University/RiderProjects/AnimalShelter/obj/Debug/netcoreapp3.0/AnimalShelter.csproj.CopyComplete
 /Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/obj/Debug/netcoreapp3.0/AnimalShelter.dll
 /Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/obj/Debug/netcoreapp3.0/AnimalShelter.pdb
+/Users/sme62/IdeaProjects/animalShelter/bin/Debug/netcoreapp3.0/Stripe.net.dll
+/Users/sme62/IdeaProjects/animalShelter/obj/Debug/netcoreapp3.0/Razor/Pages/Payment.cshtml.g.cs

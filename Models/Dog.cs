@@ -6,7 +6,7 @@ namespace animalShelter.Models
 {
     public class Dog
     {
-        public int ID { get; set; }
+        public int DogID { get; set; }
 
         [Required] [Display(Name = "Name")] 
         public string Name { get; set; }
@@ -28,6 +28,6 @@ namespace animalShelter.Models
         [Display(Name = "Image")] 
         public string ImageUrl { get; set; }
 
-        public ICollection<Adoption> Adoptions { get; set; }
+        public ICollection<DogAdoption> DogAdoptions { get; set; }
     }
 }

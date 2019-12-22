@@ -22,7 +22,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v3.0": {
-      "AnimalShelter/1.0.0": {
+      "animalShelter/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "3.0.0",
           "Microsoft.EntityFrameworkCore.Sqlite": "3.0.0",
@@ -315,10 +315,10 @@
           "WindowsBase": "4.0.0.0"
         },
         "runtime": {
-          "AnimalShelter.dll": {}
+          "animalShelter.dll": {}
         },
         "compile": {
-          "AnimalShelter.dll": {}
+          "animalShelter.dll": {}
         }
       },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
@@ -3899,7 +3899,7 @@
     }
   },
   "libraries": {
-    "AnimalShelter/1.0.0": {
+    "animalShelter/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

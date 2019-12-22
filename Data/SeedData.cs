@@ -78,23 +78,6 @@ namespace animalShelter.Data
 
             context.SaveChanges();
 
-            var adoptions = new Adoption[]
-            {
-                new Adoption
-                {
-                    DogID = dogs.Single(i => i.ID == 1).ID,
-                    UserID = users.Single(i => i.ID == 2).ID,
-                    AdoptionDate = DateTime.Parse("2019-12-14")
-                }
-            };
-
-            foreach (Adoption adoption in adoptions)
-            {
-                context.Adoptions.Add(adoption);
-            }
-
-            context.SaveChanges();
-
             var catAdoptions = new CatAdoption[]
             {
                 new CatAdoption
@@ -107,6 +90,22 @@ namespace animalShelter.Data
             foreach (CatAdoption catAdoption in catAdoptions)
             {
                 context.CatAdoptions.Add(catAdoption);
+            }
+
+            context.SaveChanges();
+
+            var dogAdoptions = new DogAdoption[]
+            {
+                new DogAdoption()
+                {
+                    DogID = dogs.Single(i => i.DogID == 1).DogID,
+                    UserID = users.Single(i => i.ID == 1).ID,
+                    AdoptionDate = DateTime.Parse("2019-12-14")
+                }
+            };
+            foreach (DogAdoption dogAdoption in dogAdoptions)
+            {
+                context.DogAdoptions.Add(dogAdoption);
             }
 
             context.SaveChanges();

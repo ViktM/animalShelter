@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using animalShelter.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using animalShelter.Data;
 
 namespace animalShelter
 {
@@ -22,12 +17,11 @@ namespace animalShelter
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
 
-            var connectionString = "Server=localhost;Database=AnimalShelterDb;User Id=sa;Password=P@ssw0rd!";
+            var connectionString = "Server=localhost;Database=AnimalShelterDbTest;User Id=sa;Password=P@ssw0rd!";
             services.AddDbContext<AnimalShelterContext>(o => o.UseSqlServer(connectionString));
         }
 
@@ -50,10 +44,7 @@ namespace animalShelter
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
         }
     }
 }

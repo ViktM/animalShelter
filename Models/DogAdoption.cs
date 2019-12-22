@@ -2,9 +2,9 @@ using System;
 
 namespace animalShelter.Models
 {
-    public class Adoption
+    public class DogAdoption
     {
-        public int AdoptionID { get; set; }
+        public int DogAdoptionID { get; set; }
         public int DogID { get; set; }
         public int UserID { get; set; }
         public Dog Dog { get; set; }

@@ -1,14 +1,11 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/animalShelter.csproj",
-    "projectName": "AnimalShelter",
-    "projectPath": "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/animalShelter.csproj",
-    "outputPath": "/Users/lda49/OneDrive - Sky/University/RiderProjects/animalShelter/obj/",
+    "projectUniqueName": "/Users/sme62/IdeaProjects/animalShelter/animalShelter.csproj",
+    "projectName": "animalShelter",
+    "projectPath": "/Users/sme62/IdeaProjects/animalShelter/animalShelter.csproj",
+    "outputPath": "/Users/sme62/IdeaProjects/animalShelter/obj/",
     "projectStyle": "PackageReference",
-    "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-    ],
     "originalTargetFrameworks": [
       "netcoreapp3.0"
     ],

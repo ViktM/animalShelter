@@ -31,7 +31,7 @@ namespace animalShelter.Models
 
         [Required] public bool IsAdmin { get; set; }
 
-        public ICollection<Adoption> Adoptions { get; set; }
+        public ICollection<DogAdoption> DogAdoptions { get; set; }
         public ICollection<CatAdoption> CatAdoptions { get; set; }
     }
 }

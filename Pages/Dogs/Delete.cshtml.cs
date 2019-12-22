@@ -28,7 +28,7 @@ namespace animalShelter.Pages.Dogs
 
             Dog = await _context.Dogs
                 .AsNoTracking()
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.DogID == id);
 
             if (Dog == null)
             {

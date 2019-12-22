@@ -8,7 +8,8 @@ namespace animalShelter.Models
     {
         public int CatID { get; set; }
 
-        [Required] [Display(Name = "Name")] public string Name { get; set; }
+        [Required] [Display(Name = "Name")] 
+        public string Name { get; set; }
 
         [Display(Name = "Date of birth")]
         [DataType(DataType.Date)]
