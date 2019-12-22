@@ -4,6 +4,7 @@ using animalShelter.Data;
 using animalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace animalShelter.Pages.Dogs
 {
@@ -27,23 +28,27 @@ namespace animalShelter.Pages.Dogs
         {
             var emptyDog = new Dog();
             
-            var path = Path.Combine(
-                Directory.GetCurrentDirectory(), "wwwroot/uploads",
-                Dog.MainImage.FileName);
-                var memory= new MemoryStream();
+            if (Dog.MainImage != null)
+            {
+                var path = Path.Combine(
+                    Directory.GetCurrentDirectory(), "wwwroot/uploads",
+                    Dog.MainImage.FileName);
+                
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     await Dog.MainImage.CopyToAsync(stream);
                     emptyDog.MainImagePath = Dog.MainImage.FileName;
                 }
-                if (await TryUpdateModelAsync<Dog>(emptyDog, "dog",
-                d => d.Name, d => d.Breed, d => d.Sex, 
-                d => d.Summary, d => d.DogAdoptions))
+            }
+            
+            if (await TryUpdateModelAsync<Dog>(emptyDog, "dog",
+            d => d.Name, d => d.Breed, d => d.Sex, 
+            d => d.Summary, d => d.DogAdoptions))
 
-                if (!ModelState.IsValid)
-                {
-                    return Page();
-                }
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
             _context.Dogs.Add(emptyDog);
             await _context.SaveChangesAsync();
