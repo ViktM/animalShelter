@@ -26,9 +26,22 @@
         {
             <div class="col-sm-6 col-md-4">
                 <div class="card border-secondary mb-3" style="...">
-                    <img class="card-img-top" src="https://placedog.net/800/640?id=26" alt="Card image">
+                    
+                    @if (item.ImageUrl!= null )
+                        
+                      
+                    {
+                        <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="Card image">
+                    }
+                    else
+                    {
+                        <img class="card-img-top" src="https://placedog.net/800/640?id=26" alt="Card image">
+                    }
+                 
+                    
+                    
                     <div class="card-body">
-                        @* <img class="card-image" src="@Html.DisplayFor(modelItem => item.ImageUrl"> *@
+
                         <h2 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h2>
                         <h5 class="card-breed">breed:@Html.DisplayFor(modelItem => item.Breed)</h5>
                         <h5 class="card-sex">sex: @Html.DisplayFor(modelItem => item.Sex)</h5>
