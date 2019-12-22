@@ -30,6 +30,9 @@ namespace animalShelter.Models
         [Display(Name = "Image")] 
         public string ImageUrl { get; set; }
         
+        [Display(Name = "DogImage")] 
+        public string MainImagePath { get; set; }
+        
         [NotMapped]
         public IFormFile MainImage { get; set; }
         public ICollection<DogAdoption> DogAdoptions { get; set; }

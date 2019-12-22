@@ -69,6 +69,12 @@
                 }
             </table>
         </dd>
+        <dd>
+            @if (Model.Dog.MainImagePath != null)
+            {
+                <img src="/uploads/@Model.Dog.MainImagePath"  alt="dogImage"/>
+            }
+        </dd>
     </dl>
 </div>
 <div>

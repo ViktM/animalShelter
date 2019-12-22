@@ -34,7 +34,7 @@ namespace animalShelter.Pages.Dogs
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     await Dog.MainImage.CopyToAsync(stream);
-                    emptyDog.ImageUrl = Dog.MainImage.FileName;
+                    emptyDog.MainImagePath = Dog.MainImage.FileName;
                 }
                 if (await TryUpdateModelAsync<Dog>(emptyDog, "dog",
                 d => d.Name, d => d.Breed, d => d.Sex, 
