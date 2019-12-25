@@ -26,10 +26,10 @@
         {
             <div class="col-sm-6 col-md-4">
                 <div class="card border-secondary mb-3" style="...">
-                    
-                    @if (item.MainImagePath!= null)
+
+                    @if (item.MainImagePath != null)
                     {
-                        <img class="card-img-top" src="/uploads/@item.MainImagePath"  alt="dogImage">
+                        <img class="card-img-top" src="/uploads/@item.MainImagePath" alt="dogImage">
                     }
                     else
                     {
@@ -40,7 +40,8 @@
                         <h2 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h2>
                         <h5 class="card-breed">breed:@Html.DisplayFor(modelItem => item.Breed)</h5>
                         <h5 class="card-sex">sex: @Html.DisplayFor(modelItem => item.Sex)</h5>
-                        <p class="card-summary">@Html.DisplayFor(modelItem => item.Summary)
+                        <p class="card-summary">@Html.DisplayFor(modelItem => item.Summary)</p>
+                        <a asp-page="./Details" asp-route-id="@item.DogID">Details</a>
                     </div>
                 </div>
             </div>
@@ -67,7 +68,3 @@
    class="btn btn-primary @nextDisabled">
     Next
 </a>
-
-
-
-

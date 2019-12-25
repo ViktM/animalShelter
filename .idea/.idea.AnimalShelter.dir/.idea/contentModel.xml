@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_.19.00" t="ExcludeRecursive" />
-    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
-    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
       <e p="AnimalShelter.csproj" t="IncludeRecursive" />
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
@@ -14,11 +11,16 @@
         <e p="AnimalShelterContext.cs" t="Include" />
         <e p="SeedData.cs" t="Include" />
       </e>
+      <e p="Migrations" t="Include">
+        <e p="20191222175327_InitialCreate.cs" t="Include" />
+        <e p="20191222175327_InitialCreate.Designer.cs" t="Include" />
+        <e p="AnimalShelterContextModelSnapshot.cs" t="Include" />
+      </e>
       <e p="Models" t="Include">
-        <e p="Adoption.cs" t="Include" />
         <e p="Cat.cs" t="Include" />
         <e p="CatAdoption.cs" t="Include" />
         <e p="Dog.cs" t="Include" />
+        <e p="DogAdoption.cs" t="Include" />
         <e p="User.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
@@ -32,6 +34,10 @@
       <e p="Pages" t="Include">
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
+        <e p="Administration" t="Include">
+          <e p="Index.cshtml" t="Include" />
+          <e p="Index.cshtml.cs" t="Include" />
+        </e>
         <e p="Cats" t="Include">
           <e p="Create.cshtml" t="Include" />
           <e p="Create.cshtml.cs" t="Include" />
@@ -136,7 +142,12 @@
             <e p="LICENSE.txt" t="Include" />
           </e>
         </e>
+        <e p="Uploads" t="Include">
+          <e p=".gitignore" t="Include" />
+        </e>
       </e>
     </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_.19.00" t="ExcludeRecursive" />
   </component>
 </project>

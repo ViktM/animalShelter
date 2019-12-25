@@ -7,23 +7,8 @@
 
 <div class="row">
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">DESCRIPTION</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">DESCRIPTION</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/07/17/18/43/animals-2513398_1280.jpg"
+             alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">Invite a pet for dinner!</h5>
             <p class="card-text">Please donate £2.5 and invite a pet for tasty dinner</p>
@@ -32,6 +17,34 @@
                 id="checkout-button-sku_GNvCSExh60khi5"
                 role="link">
                 I want to donate £2.5!
+            </button>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://placedog.net/800/640?id=30" alt="Puppy in a blanket">
+        <div class="card-body">
+            <h5 class="card-title">Keep them warm and happy</h5>
+            <p class="card-text">Please help us keep our pets warm and happy for only £5!</p>
+            <button
+                class="btn btn-primary"
+                id="checkout-button-sku_GQNLhvoyVAMeMl"
+                role="link">
+                I want to buy donate £5!
+            </button>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top"
+             src="https://cdn.pixabay.com/photo/2016/09/07/16/19/bremen-town-musicians-1651945_1280.jpg"
+             alt="Bremen musicians">
+        <div class="card-body">
+            <h5 class="card-title">Build a kennel for a pet</h5>
+            <p class="card-text">Help us build a nest for one of our pets for £100!</p>
+            <button
+                class="btn btn-primary"
+                id="checkout-button-sku_GQNhjxiFY42UvW"
+                role="link">
+                I want to donate £100!
             </button>
         </div>
     </div>
@@ -49,6 +62,50 @@
       items: [{sku: 'sku_GNvCSExh60khi5', quantity: 1}],
       successUrl: 'https://localhost:5001/',
       cancelUrl: 'https://localhost:5001/',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
+
+<div id="error-message"></div>
+<script>
+(function() {
+  var stripe = Stripe('pk_test_Wo3igAYKGtt9805nnsnmPC3n00WBO61Fyw');
+
+  var checkoutButton = document.getElementById('checkout-button-sku_GQNLhvoyVAMeMl');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_GQNLhvoyVAMeMl', quantity: 1}],
+      successUrl: 'https://your-website.com/success',
+      cancelUrl: 'https://your-website.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_test_Wo3igAYKGtt9805nnsnmPC3n00WBO61Fyw');
+
+  var checkoutButton = document.getElementById('checkout-button-sku_GQNhjxiFY42UvW');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_GQNhjxiFY42UvW', quantity: 1}],
+      successUrl: 'https://your-website.com/success',
+      cancelUrl: 'https://your-website.com/canceled',
     })
     .then(function (result) {
       if (result.error) {
