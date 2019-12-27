@@ -35,6 +35,6 @@ namespace animalShelter.Models
         [NotMapped]
         [Display(Name = "Main Image")] 
         public IFormFile MainImage { get; set; }
-        public ICollection<DogAdoption> DogAdoptions { get; set; }
+//        public ICollection<DogAdoption> DogAdoptions { get; set; }
     }
 }

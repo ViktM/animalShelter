@@ -26,7 +26,6 @@ namespace animalShelter.Pages.Dogs
             }
 
             Dog = await _context.Dogs
-                .Include(d => d.DogAdoptions)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.DogID == id);
 

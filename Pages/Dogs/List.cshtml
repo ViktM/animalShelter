@@ -1,0 +1,58 @@
+@page
+@model animalShelter.Pages.Dogs.ListModel
+
+@{
+    ViewData["Title"] = "Dogs";
+}
+<br/>
+
+<table class="table table-hover">
+    <thead>
+    <tr class="table-dark">        
+        <th>
+            @Html.DisplayNameFor(model => model.Dog[0].Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dog[0].Dob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dog[0].Breed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dog[0].Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dog[0].Summary)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Dog)
+    {
+        <tr class="table-active">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Breed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DogID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DogID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DogID">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

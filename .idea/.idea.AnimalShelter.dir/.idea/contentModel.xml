@@ -52,6 +52,18 @@
           <e p="Index.cshtml" t="Include" />
           <e p="Index.cshtml.cs" t="Include" />
         </e>
+        <e p="CatAdoptions" t="Include">
+          <e p="Create.cshtml" t="Include" />
+          <e p="Create.cshtml.cs" t="Include" />
+          <e p="Delete.cshtml" t="Include" />
+          <e p="Delete.cshtml.cs" t="Include" />
+          <e p="Details.cshtml" t="Include" />
+          <e p="Details.cshtml.cs" t="Include" />
+          <e p="Edit.cshtml" t="Include" />
+          <e p="Edit.cshtml.cs" t="Include" />
+          <e p="Index.cshtml" t="Include" />
+          <e p="Index.cshtml.cs" t="Include" />
+        </e>
         <e p="Cats" t="Include">
           <e p="Create.cshtml" t="Include" />
           <e p="Create.cshtml.cs" t="Include" />
@@ -63,6 +75,8 @@
           <e p="Edit.cshtml.cs" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="Index.cshtml.cs" t="Include" />
+          <e p="List.cshtml" t="Include" />
+          <e p="List.cshtml.cs" t="Include" />
         </e>
         <e p="DogAdoptions" t="Include">
           <e p="Create.cshtml" t="Include" />
@@ -87,6 +101,8 @@
           <e p="Edit.cshtml.cs" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="Index.cshtml.cs" t="Include" />
+          <e p="List.cshtml" t="Include" />
+          <e p="List.cshtml.cs" t="Include" />
         </e>
         <e p="Error.cshtml" t="Include" />
         <e p="Error.cshtml.cs" t="Include" />
