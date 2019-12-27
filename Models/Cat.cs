@@ -11,7 +11,7 @@ namespace animalShelter.Models
         public int CatID { get; set; }
 
         [Required] 
-        [StringLength(20, MinimumLength=2, ErrorMessage = "Name must be between 2 and 20 characters")]
+        [StringLength(20,MinimumLength=2, ErrorMessage = "Name must be between 2 and 20 characters")]
         [Display(Name = "Name")] 
         public string Name { get; set; }
 
@@ -29,13 +29,12 @@ namespace animalShelter.Models
         [Display(Name = "Summary")] 
         public string Summary { get; set; }
 
-        [Display(Name = "Cat Image")] 
+        [Display(Name = "Dog Image")] 
         public string MainImagePath { get; set; }
         
         [NotMapped]
         [Display(Name = "Main Image")] 
         public IFormFile MainImage { get; set; }
-
-        public ICollection<CatAdoption> CatAdoptions { get; set; }
+//        public ICollection<CatAdoption> CatAdoptions { get; set; }
     }
 }
