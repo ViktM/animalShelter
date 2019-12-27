@@ -8,9 +8,9 @@
 <p>
     <a asp-page="Create">Create New User</a>
 </p>
-<table class="table">
+<table class="table table-hover">
     <thead>
-    <tr>
+    <tr class="table-dark">        
         <th>
             @Html.DisplayNameFor(model => model.User[0].FirstName)
         </th>
@@ -38,7 +38,7 @@
     <tbody>
     @foreach (var item in Model.User)
     {
-        <tr>
+        <tr class="table-active">
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
