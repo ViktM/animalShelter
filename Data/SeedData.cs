@@ -41,12 +41,12 @@ namespace animalShelter.Data
                 new Cat
                 {
                     Name = "Peanut", Dob = DateTime.Parse("2012-12-25"), Breed = "Mixed", Sex = "f",
-                    Summary = "A cute and fluffy cat", ImageUrl = "www.gizmo.com/gizmo.jpg"
+                    Summary = "A cute and fluffy cat"
                 },
                 new Cat
                 {
-                    Name = "Peacan", Dob = DateTime.Parse("2016-02-14"), Breed = "Bengal", Sex = "f",
-                    Summary = "Even fluffier cat!", ImageUrl = "www.dexter.com/dexter.jpg"
+                    Name = "Pecan", Dob = DateTime.Parse("2016-02-14"), Breed = "Bengal", Sex = "f",
+                    Summary = "Even fluffier cat!"
                 }
             };
             foreach (Cat cat in cats)

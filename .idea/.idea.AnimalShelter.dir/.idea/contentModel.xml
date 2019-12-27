@@ -18,6 +18,8 @@
       <e p="Migrations" t="Include">
         <e p="20191222175327_InitialCreate.cs" t="Include" />
         <e p="20191222175327_InitialCreate.Designer.cs" t="Include" />
+        <e p="20191227094604_CatChanges.cs" t="Include" />
+        <e p="20191227094604_CatChanges.Designer.cs" t="Include" />
         <e p="AnimalShelterContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">

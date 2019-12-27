@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 
 namespace animalShelter.Models
 {
@@ -25,8 +27,11 @@ namespace animalShelter.Models
         [Display(Name = "Summary")] 
         public string Summary { get; set; }
 
-        [Display(Name = "Image")] 
-        public string ImageUrl { get; set; }
+        [Display(Name = "Cat Image")] 
+        public string MainImagePath { get; set; }
+        
+        [NotMapped]
+        public IFormFile MainImage { get; set; }
 
         public ICollection<CatAdoption> CatAdoptions { get; set; }
     }
