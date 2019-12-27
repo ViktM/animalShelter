@@ -6,6 +6,12 @@
 
   <ItemGroup>
     <Compile Remove="Models\Animal.cs" />
+    <Compile Update="Pages\About\Index.cshtml.cs">
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Account\Index.cshtml.cs">
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
