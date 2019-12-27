@@ -2,43 +2,42 @@
 @model animalShelter.Pages.Users.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Users";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Create New User</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].AddressLine1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Postcode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Telephone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].IsAdmin)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User[0].FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User[0].LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User[0].AddressLine1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User[0].Postcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User[0].Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User[0].Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User[0].IsAdmin)
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.User) {
+    @foreach (var item in Model.User)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -67,6 +66,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>

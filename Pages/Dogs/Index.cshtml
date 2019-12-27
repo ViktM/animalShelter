@@ -6,13 +6,13 @@
 }
 
 <div class="text-center">
-    <h1 class="align-center">Meet the dogs</h1>
+    <h1 class="align-center">Meet the Dogs</h1>
 </div>
 
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
-            Find by name:
+            Find by Name:
             <input type="text" name="SearchString" value="@Model.CurrentFilter"/>
             <input type="submit" value="Search" class="btn btn-primary"/> |
             <a asp-page="./Index">Back to Full List</a>
@@ -38,8 +38,8 @@
 
                     <div class="card-body">
                         <h2 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h2>
-                        <h5 class="card-breed">breed:@Html.DisplayFor(modelItem => item.Breed)</h5>
-                        <h5 class="card-sex">sex: @Html.DisplayFor(modelItem => item.Sex)</h5>
+                        <h5 class="card-breed">Breed:@Html.DisplayFor(modelItem => item.Breed)</h5>
+                        <h5 class="card-sex">Sex: @Html.DisplayFor(modelItem => item.Sex)</h5>
                         <p class="card-summary">@Html.DisplayFor(modelItem => item.Summary)</p>
                         <a asp-page="./Details" asp-route-id="@item.DogID">Details</a>
                     </div>

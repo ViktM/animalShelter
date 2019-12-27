@@ -20,12 +20,12 @@ namespace animalShelter.Data
             {
                 new Dog
                 {
-                    Name = "Gizmo", Dob = DateTime.Parse("2012-12-25"), Breed = "Mixed", Sex = "m",
+                    Name = "Gizmo", Dob = DateTime.Parse("2012-12-25"), Breed = "Mixed", Sex = "M",
                     Summary = "A cute and fluffy dog"
                 },
                 new Dog
                 {
-                    Name = "Dexter", Dob = DateTime.Parse("2016-02-14"), Breed = "Chow Chow", Sex = "m",
+                    Name = "Dexter", Dob = DateTime.Parse("2016-02-14"), Breed = "Chow Chow", Sex = "M",
                     Summary = "Even fluffier!"
                 }
             };
@@ -40,12 +40,12 @@ namespace animalShelter.Data
             {
                 new Cat
                 {
-                    Name = "Peanut", Dob = DateTime.Parse("2012-12-25"), Breed = "Mixed", Sex = "f",
+                    Name = "Peanut", Dob = DateTime.Parse("2012-12-25"), Breed = "Mixed", Sex = "F",
                     Summary = "A cute and fluffy cat"
                 },
                 new Cat
                 {
-                    Name = "Pecan", Dob = DateTime.Parse("2016-02-14"), Breed = "Bengal", Sex = "f",
+                    Name = "Pecan", Dob = DateTime.Parse("2016-02-14"), Breed = "Bengal", Sex = "F",
                     Summary = "Even fluffier cat!"
                 }
             };
