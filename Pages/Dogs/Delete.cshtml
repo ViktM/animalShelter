@@ -5,10 +5,9 @@
     ViewData["Title"] = "Delete Dog";
 }
 <br/>
-<p class="text-danger">@Model.ErrorMessage</p>
-<h3>Are you sure you want to delete this Dog?</h3>
+<h3 class="text-danger">Are you sure you want to delete this Dog?</h3>
 <div>
-    <h4>Dog</h4>
+    <h4>Delete Dog</h4>
     <hr/>
     <dl class="row">
         <dt class="col-sm-2">
@@ -46,6 +45,6 @@
     <form method="post">
         <input type="hidden" asp-for="Dog.DogID"/>
         <input type="submit" value="Delete" class="btn btn-danger"/> |
-        <a asp-page="../Administration/Index">Back to List</a>
+        <a asp-page="./List">Back to List</a>
     </form>
 </div>
