@@ -1,0 +1,48 @@
+@page
+@model animalShelter.Pages.DogAdoptions.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DogAdoption[0].Dog)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogAdoption[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogAdoption[0].AdoptionDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.DogAdoption) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dog.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdoptionDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DogAdoptionID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DogAdoptionID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DogAdoptionID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

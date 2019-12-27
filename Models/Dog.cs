@@ -13,7 +13,7 @@ namespace animalShelter.Models
         [Required] [Display(Name = "Name")] 
         public string Name { get; set; }
 
-        [Display(Name = "Date of birth")]
+        [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Dob { get; set; }
