@@ -19,11 +19,29 @@ namespace animalShelter.Pages.Users
             _context = context;
         }
 
-        public new IList<User>  User { get;set; }
+        public string NameSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+        public IList<User> Users { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder)
         {
-            User = await _context.Users.ToListAsync();
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            IQueryable<User> usersIq = from s in _context.Users
+                select s;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    usersIq = usersIq.OrderByDescending(s => s.LastName);
+                    break;
+                default:
+                    usersIq = usersIq.OrderBy(s => s.LastName);
+                    break;
+            }
+
+            Users = await usersIq.AsNoTracking().ToListAsync();
         }
     }
 }

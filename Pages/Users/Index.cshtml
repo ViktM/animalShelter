@@ -10,33 +10,35 @@
 </p>
 <table class="table table-hover">
     <thead>
-    <tr class="table-dark">        
+    <tr class="table-dark">
         <th>
-            @Html.DisplayNameFor(model => model.User[0].FirstName)
+            @Html.DisplayNameFor(model => model.Users[0].FirstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User[0].LastName)
+            <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort">
+
+                @Html.DisplayNameFor(model => model.Users[0].LastName)</a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User[0].AddressLine1)
+            @Html.DisplayNameFor(model => model.Users[0].AddressLine1)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User[0].Postcode)
+            @Html.DisplayNameFor(model => model.Users[0].Postcode)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User[0].Email)
+            @Html.DisplayNameFor(model => model.Users[0].Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User[0].Telephone)
+            @Html.DisplayNameFor(model => model.Users[0].Telephone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User[0].IsAdmin)
+            @Html.DisplayNameFor(model => model.Users[0].IsAdmin)
         </th>
         <th></th>
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.User)
+    @foreach (var item in Model.Users)
     {
         <tr class="table-active">
             <td>

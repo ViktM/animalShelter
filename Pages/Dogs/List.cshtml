@@ -14,25 +14,29 @@
     <thead>
     <tr class="table-dark">
         <th>
-            @Html.DisplayNameFor(model => model.Dog[0].Name)
+                            <a asp-page="./List" asp-route-sortOrder="@Model.NameSort">
+
+            @Html.DisplayNameFor(model => model.Dogs[0].Name)</a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Dog[0].Dob)
+            <a asp-page="./List" asp-route-sortOrder="@Model.DateSort">
+
+                @Html.DisplayNameFor(model => model.Dogs[0].Dob)</a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Dog[0].Breed)
+            @Html.DisplayNameFor(model => model.Dogs[0].Breed)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Dog[0].Sex)
+            @Html.DisplayNameFor(model => model.Dogs[0].Sex)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Dog[0].Summary)
+            @Html.DisplayNameFor(model => model.Dogs[0].Summary)
         </th>
         <th></th>
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.Dog)
+    @foreach (var item in Model.Dogs)
     {
         <tr class="table-active">
             <td>

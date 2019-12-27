@@ -19,11 +19,39 @@ namespace animalShelter.Pages.Dogs
             _context = context;
         }
 
-        public IList<Dog>  Dog { get;set; }
+        public string NameSort { get; set; }
+        public string DateSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
-        public async Task OnGetAsync()
+        public IList<Dog> Dogs { get; set; }
+
+        public async Task OnGetAsync(string sortOrder)
         {
-            Dog = await _context.Dogs.ToListAsync();
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+
+            IQueryable<Dog> dogsIq = from s in _context.Dogs
+                select s;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    dogsIq = dogsIq.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    dogsIq = dogsIq.OrderBy(s => s.Dob);
+                    break;
+                case "date_desc":
+                    dogsIq = dogsIq.OrderByDescending(s => s.Dob);
+                    break;
+                default:
+                    dogsIq = dogsIq.OrderBy(s => s.Name);
+                    break;
+            }
+
+            Dogs = await dogsIq.AsNoTracking().ToListAsync();
+
         }
     }
-}
+    }
