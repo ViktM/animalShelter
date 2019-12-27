@@ -35,7 +35,9 @@ namespace animalShelter.Models
         [Display(Name = "Postcode")]
         public string Postcode { get; set; }
 
-        [Required] [Display(Name = "E-mail")] 
+        [Required] 
+        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")]
+        [Display(Name = "E-mail Address")] 
         public string Email { get; set; }
 
         [Required]

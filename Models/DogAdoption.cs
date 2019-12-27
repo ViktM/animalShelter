@@ -16,6 +16,7 @@ namespace animalShelter.Models
         public User User { get; set; }
         
         [DataType(DataType.Date)]
+        [Required] [Display(Name = "Adoption Date")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime AdoptionDate { get; set; }
     }
