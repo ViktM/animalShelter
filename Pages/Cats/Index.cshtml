@@ -38,8 +38,8 @@
 
                     <div class="card-body">
                         <h2 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h2>
-                        <h5 class="card-breed">breed:@Html.DisplayFor(modelItem => item.Breed)</h5>
-                        <h5 class="card-sex">sex: @Html.DisplayFor(modelItem => item.Sex)</h5>
+                        <h5 class="card-breed">Breed:@Html.DisplayFor(modelItem => item.Breed)</h5>
+                        <h5 class="card-sex">Sex: @Html.DisplayFor(modelItem => item.Sex)</h5>
                         <p class="card-summary">@Html.DisplayFor(modelItem => item.Summary)</p>
                         <a asp-page="./Details" asp-route-id="@item.CatID">Details</a>
                     </div>
