@@ -31,14 +31,17 @@ namespace animalShelter.Models
         [Display(Name = "Postcode")]
         public string Postcode { get; set; }
 
-        [Required] [Display(Name = "Email")] 
+        [Required] [Display(Name = "E-mail")] 
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "Phone number")]
+        [Display(Name = "Phone Number")]
         public string Telephone { get; set; }
 
-        [Required] public bool IsAdmin { get; set; }
+        
+        [Required]
+        [Display(Name = "Administrator")]
+        public bool IsAdmin { get; set; }
 
         public ICollection<DogAdoption> DogAdoptions { get; set; }
         public ICollection<CatAdoption> CatAdoptions { get; set; }
