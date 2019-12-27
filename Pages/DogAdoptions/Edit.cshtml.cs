@@ -20,8 +20,7 @@ namespace animalShelter.Pages.DogAdoptions
             _context = context;
         }
 
-        [BindProperty]
-        public DogAdoption DogAdoption { get; set; }
+        [BindProperty] public DogAdoption DogAdoption { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -38,8 +37,9 @@ namespace animalShelter.Pages.DogAdoptions
             {
                 return NotFound();
             }
-           ViewData["DogID"] = new SelectList(_context.Dogs, "DogID", "Name");
-           ViewData["UserID"] = new SelectList(_context.Users, "ID", "FullName");
+
+            ViewData["DogID"] = new SelectList(_context.Dogs, "DogID", "Name");
+            ViewData["UserID"] = new SelectList(_context.Users, "ID", "FullName");
             return Page();
         }
 

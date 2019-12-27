@@ -7,16 +7,16 @@
 <br/>
 
 <p>
-<a asp-page="Create">Create New Dog</a>
+    <a asp-page="Create">Create New Dog</a>
 </p>
 
 <table class="table table-hover">
     <thead>
     <tr class="table-dark">
         <th>
-                            <a asp-page="./List" asp-route-sortOrder="@Model.NameSort">
+            <a asp-page="./List" asp-route-sortOrder="@Model.NameSort">
 
-            @Html.DisplayNameFor(model => model.Dogs[0].Name)</a>
+                @Html.DisplayNameFor(model => model.Dogs[0].Name)</a>
         </th>
         <th>
             <a asp-page="./List" asp-route-sortOrder="@Model.DateSort">

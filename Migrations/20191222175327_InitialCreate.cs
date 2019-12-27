@@ -20,10 +20,7 @@ namespace animalShelter.Migrations
                     Summary = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cat", x => x.CatID);
-                });
+                constraints: table => { table.PrimaryKey("PK_Cat", x => x.CatID); });
 
             migrationBuilder.CreateTable(
                 name: "Dog",
@@ -39,10 +36,7 @@ namespace animalShelter.Migrations
                     ImageUrl = table.Column<string>(nullable: true),
                     MainImagePath = table.Column<string>(nullable: true)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Dog", x => x.DogID);
-                });
+                constraints: table => { table.PrimaryKey("PK_Dog", x => x.DogID); });
 
             migrationBuilder.CreateTable(
                 name: "User",
@@ -58,10 +52,7 @@ namespace animalShelter.Migrations
                     Telephone = table.Column<string>(nullable: false),
                     IsAdmin = table.Column<bool>(nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User", x => x.ID);
-                });
+                constraints: table => { table.PrimaryKey("PK_User", x => x.ID); });
 
             migrationBuilder.CreateTable(
                 name: "Adoption",

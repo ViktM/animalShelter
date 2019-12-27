@@ -51,7 +51,6 @@ namespace animalShelter.Pages.Cats
             }
 
             Cats = await catsIq.AsNoTracking().ToListAsync();
-
         }
     }
 }

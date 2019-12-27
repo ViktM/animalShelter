@@ -34,6 +34,7 @@ namespace animalShelter.Pages.Users
             {
                 return NotFound();
             }
+
             return Page();
         }
     }

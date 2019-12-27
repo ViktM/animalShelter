@@ -51,7 +51,6 @@ namespace animalShelter.Pages.Dogs
             }
 
             Dogs = await dogsIq.AsNoTracking().ToListAsync();
-
         }
     }
-    }
+}

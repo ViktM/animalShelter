@@ -36,6 +36,7 @@ namespace animalShelter.Pages.DogAdoptions
             {
                 return NotFound();
             }
+
             return Page();
         }
     }

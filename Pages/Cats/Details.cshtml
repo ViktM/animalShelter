@@ -40,15 +40,15 @@
             @Html.DisplayFor(model => model.Cat.Summary)
         </dd>
         <dd>
-                    @if (Model.Cat.MainImagePath != null)
-                    {
-                        <img class="card-img-top" src="/uploads/@Model.Cat.MainImagePath" alt="catImage">
-                    }
-                    else
-                    {
-                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/12/12/23/33/cat-3871896__480.jpg" alt="Card image">
-                    }
-                </dd>
+            @if (Model.Cat.MainImagePath != null)
+            {
+                <img class="card-img-top" src="/uploads/@Model.Cat.MainImagePath" alt="catImage">
+            }
+            else
+            {
+                <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/12/12/23/33/cat-3871896__480.jpg" alt="Card image">
+            }
+        </dd>
     </dl>
 </div>
 <div>

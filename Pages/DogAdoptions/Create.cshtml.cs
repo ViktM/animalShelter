@@ -21,13 +21,12 @@ namespace animalShelter.Pages.DogAdoptions
 
         public IActionResult OnGet()
         {
-        ViewData["DogID"] = new SelectList(_context.Dogs, "DogID", "Name");
-        ViewData["UserID"] = new SelectList(_context.Users, "ID", "FullName");
+            ViewData["DogID"] = new SelectList(_context.Dogs, "DogID", "Name");
+            ViewData["UserID"] = new SelectList(_context.Users, "ID", "FullName");
             return Page();
         }
 
-        [BindProperty]
-        public DogAdoption DogAdoption { get; set; }
+        [BindProperty] public DogAdoption DogAdoption { get; set; }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

@@ -24,8 +24,7 @@ namespace animalShelter.Pages.Users
             return Page();
         }
 
-        [BindProperty]
-         public new User User { get; set; }
+        [BindProperty] public new User User { get; set; }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

@@ -36,6 +36,7 @@ namespace animalShelter.Pages.CatAdoptions
             {
                 return NotFound();
             }
+
             return Page();
         }
     }

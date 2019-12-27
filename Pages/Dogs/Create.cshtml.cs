@@ -27,28 +27,28 @@ namespace animalShelter.Pages.Dogs
         public async Task<IActionResult> OnPostAsync()
         {
             var emptyDog = new Dog();
-            
+
             if (Dog.MainImage != null)
             {
                 var path = Path.Combine(
                     Directory.GetCurrentDirectory(), "wwwroot/uploads",
                     Dog.MainImage.FileName);
-                
+
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     await Dog.MainImage.CopyToAsync(stream);
                     emptyDog.MainImagePath = Dog.MainImage.FileName;
                 }
             }
-            
-            if (await TryUpdateModelAsync<Dog>(emptyDog, "dog",
-            d => d.Name, d => d.Breed, d => d.Sex, 
-            d => d.Summary))
 
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (await TryUpdateModelAsync<Dog>(emptyDog, "dog",
+                d => d.Name, d => d.Breed, d => d.Sex,
+                d => d.Summary))
+
+                if (!ModelState.IsValid)
+                {
+                    return Page();
+                }
 
             _context.Dogs.Add(emptyDog);
             await _context.SaveChangesAsync();

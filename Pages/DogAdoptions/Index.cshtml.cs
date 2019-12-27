@@ -19,7 +19,7 @@ namespace animalShelter.Pages.DogAdoptions
             _context = context;
         }
 
-        public IList<DogAdoption> DogAdoption { get;set; }
+        public IList<DogAdoption> DogAdoption { get; set; }
 
         public async Task OnGetAsync()
         {

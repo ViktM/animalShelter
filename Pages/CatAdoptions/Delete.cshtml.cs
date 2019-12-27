@@ -19,8 +19,7 @@ namespace animalShelter.Pages.CatAdoptions
             _context = context;
         }
 
-        [BindProperty]
-        public CatAdoption CatAdoption { get; set; }
+        [BindProperty] public CatAdoption CatAdoption { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -37,6 +36,7 @@ namespace animalShelter.Pages.CatAdoptions
             {
                 return NotFound();
             }
+
             return Page();
         }
 

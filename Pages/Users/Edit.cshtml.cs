@@ -20,8 +20,7 @@ namespace animalShelter.Pages.Users
             _context = context;
         }
 
-        [BindProperty]
-        public new User User { get; set; }
+        [BindProperty] public new User User { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -36,6 +35,7 @@ namespace animalShelter.Pages.Users
             {
                 return NotFound();
             }
+
             return Page();
         }
 
