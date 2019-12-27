@@ -1,3 +1,5 @@
 
 # Default ignored files
 /.idea.AnimalShelter.dir/.idea/workspace.xml
+# Datasource local storage ignored files
+/.idea.AnimalShelter.dir/.idea/dataSources.local.xml
