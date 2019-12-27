@@ -10,7 +10,9 @@ namespace animalShelter.Models
     {
         public int CatID { get; set; }
 
-        [Required] [Display(Name = "Name")] 
+        [Required] 
+        [StringLength(20, MinimumLength=2, ErrorMessage = "Name must be between 2 and 20 characters")]
+        [Display(Name = "Name")] 
         public string Name { get; set; }
 
         [Display(Name = "Date of Birth")]

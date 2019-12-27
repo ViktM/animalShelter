@@ -4,7 +4,51 @@
 @{
     ViewData["Title"] = "Administration";
 }
-
+<br xmlns="http://www.w3.org/1999/html"/>
 <div class="text-center">
     <h1 class="align-center">Administration</h1>
+</div>
+
+<div class="row">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/08/07/20/48/animals-2607704__480.jpg"
+             alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"><a asp-page="/Users/Index">User Administration</a></h5>
+            <p class="card-text">Create, edit and delete Users</p>
+        </div>
+    </div>
+       <div class="card" style="width: 18rem;">
+           <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/09/07/17/48/chihuahua-2726117__480.jpg"
+                alt="Card image cap">
+           <div class="card-body">
+            <h5 class="card-title"><a asp-page="/Dogs/Index">Dog Administration</a></h5>
+               <p class="card-text">Create, edit and delete Dogs</p>
+           </div>
+       </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/03/28/16/23/cute-3269715__480.jpg"
+             alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"><a asp-page="/Cats/Index">Cat Administration</a></h5>
+            <p class="card-text">Create, edit and delete Cats</p>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/08/06/13/00/puppy-2592307__480.jpg"
+             alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"><a asp-page="/DogAdoptions/Index">Dog Adoption Administration</a></h5>
+            <p class="card-text">Create, edit and delete Dog Adoptions</p>
+        </div>
+    </div>
+    
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/08/19/23/32/kitten-3617833__480.jpg"
+                 alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title"><a asp-page="/CatAdoptions/Index">Cat Adoption Administration</a></h5>
+                <p class="card-text">Create, edit and delete Cat Adoptions</p>
+            </div>
+        </div>
 </div>
