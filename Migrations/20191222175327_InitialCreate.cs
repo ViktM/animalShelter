@@ -8,30 +8,30 @@ namespace animalShelter.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Cat",
-                columns: table => new
+                "Cat",
+                table => new
                 {
-                    CatID = table.Column<int>(nullable: false)
+                    CatID = table.Column<int>()
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    Dob = table.Column<DateTime>(nullable: false),
-                    Breed = table.Column<string>(nullable: false),
-                    Sex = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(),
+                    Dob = table.Column<DateTime>(),
+                    Breed = table.Column<string>(),
+                    Sex = table.Column<string>(),
                     Summary = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table => { table.PrimaryKey("PK_Cat", x => x.CatID); });
 
             migrationBuilder.CreateTable(
-                name: "Dog",
-                columns: table => new
+                "Dog",
+                table => new
                 {
-                    DogID = table.Column<int>(nullable: false)
+                    DogID = table.Column<int>()
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    Dob = table.Column<DateTime>(nullable: false),
-                    Breed = table.Column<string>(nullable: false),
-                    Sex = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(),
+                    Dob = table.Column<DateTime>(),
+                    Breed = table.Column<string>(),
+                    Sex = table.Column<string>(),
                     Summary = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     MainImagePath = table.Column<string>(nullable: true)
@@ -39,112 +39,112 @@ namespace animalShelter.Migrations
                 constraints: table => { table.PrimaryKey("PK_Dog", x => x.DogID); });
 
             migrationBuilder.CreateTable(
-                name: "User",
-                columns: table => new
+                "User",
+                table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<int>()
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
-                    AddressLine1 = table.Column<string>(nullable: false),
-                    Postcode = table.Column<string>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
-                    Telephone = table.Column<string>(nullable: false),
-                    IsAdmin = table.Column<bool>(nullable: false)
+                    FirstName = table.Column<string>(),
+                    LastName = table.Column<string>(),
+                    AddressLine1 = table.Column<string>(),
+                    Postcode = table.Column<string>(),
+                    Email = table.Column<string>(),
+                    Telephone = table.Column<string>(),
+                    IsAdmin = table.Column<bool>()
                 },
                 constraints: table => { table.PrimaryKey("PK_User", x => x.ID); });
 
             migrationBuilder.CreateTable(
-                name: "Adoption",
-                columns: table => new
+                "Adoption",
+                table => new
                 {
-                    DogAdoptionID = table.Column<int>(nullable: false)
+                    DogAdoptionID = table.Column<int>()
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DogID = table.Column<int>(nullable: false),
-                    UserID = table.Column<int>(nullable: false),
-                    AdoptionDate = table.Column<DateTime>(nullable: false)
+                    DogID = table.Column<int>(),
+                    UserID = table.Column<int>(),
+                    AdoptionDate = table.Column<DateTime>()
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Adoption", x => x.DogAdoptionID);
                     table.ForeignKey(
-                        name: "FK_Adoption_Dog_DogID",
-                        column: x => x.DogID,
-                        principalTable: "Dog",
-                        principalColumn: "DogID",
+                        "FK_Adoption_Dog_DogID",
+                        x => x.DogID,
+                        "Dog",
+                        "DogID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Adoption_User_UserID",
-                        column: x => x.UserID,
-                        principalTable: "User",
-                        principalColumn: "ID",
+                        "FK_Adoption_User_UserID",
+                        x => x.UserID,
+                        "User",
+                        "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CatAdoption",
-                columns: table => new
+                "CatAdoption",
+                table => new
                 {
-                    CatAdoptionID = table.Column<int>(nullable: false)
+                    CatAdoptionID = table.Column<int>()
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CatID = table.Column<int>(nullable: false),
-                    UserID = table.Column<int>(nullable: false),
-                    AdoptionDate = table.Column<DateTime>(nullable: false)
+                    CatID = table.Column<int>(),
+                    UserID = table.Column<int>(),
+                    AdoptionDate = table.Column<DateTime>()
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CatAdoption", x => x.CatAdoptionID);
                     table.ForeignKey(
-                        name: "FK_CatAdoption_Cat_CatID",
-                        column: x => x.CatID,
-                        principalTable: "Cat",
-                        principalColumn: "CatID",
+                        "FK_CatAdoption_Cat_CatID",
+                        x => x.CatID,
+                        "Cat",
+                        "CatID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CatAdoption_User_UserID",
-                        column: x => x.UserID,
-                        principalTable: "User",
-                        principalColumn: "ID",
+                        "FK_CatAdoption_User_UserID",
+                        x => x.UserID,
+                        "User",
+                        "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Adoption_DogID",
-                table: "Adoption",
-                column: "DogID");
+                "IX_Adoption_DogID",
+                "Adoption",
+                "DogID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Adoption_UserID",
-                table: "Adoption",
-                column: "UserID");
+                "IX_Adoption_UserID",
+                "Adoption",
+                "UserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CatAdoption_CatID",
-                table: "CatAdoption",
-                column: "CatID");
+                "IX_CatAdoption_CatID",
+                "CatAdoption",
+                "CatID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CatAdoption_UserID",
-                table: "CatAdoption",
-                column: "UserID");
+                "IX_CatAdoption_UserID",
+                "CatAdoption",
+                "UserID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Adoption");
+                "Adoption");
 
             migrationBuilder.DropTable(
-                name: "CatAdoption");
+                "CatAdoption");
 
             migrationBuilder.DropTable(
-                name: "Dog");
+                "Dog");
 
             migrationBuilder.DropTable(
-                name: "Cat");
+                "Cat");
 
             migrationBuilder.DropTable(
-                name: "User");
+                "User");
         }
     }
 }

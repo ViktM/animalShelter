@@ -11,12 +11,9 @@ namespace animalShelter.Data
         {
             context.Database.EnsureCreated();
 
-            if (context.Dogs.Any())
-            {
-                return;
-            }
+            if (context.Dogs.Any()) return;
 
-            var dogs = new Dog[]
+            var dogs = new[]
             {
                 new Dog
                 {
@@ -29,14 +26,11 @@ namespace animalShelter.Data
                     Summary = "Even fluffier!"
                 }
             };
-            foreach (Dog d in dogs)
-            {
-                context.Dogs.Add(d);
-            }
+            foreach (var d in dogs) context.Dogs.Add(d);
 
             context.SaveChanges();
 
-            var cats = new Cat[]
+            var cats = new[]
             {
                 new Cat
                 {
@@ -49,14 +43,11 @@ namespace animalShelter.Data
                     Summary = "Even fluffier cat!"
                 }
             };
-            foreach (Cat cat in cats)
-            {
-                context.Cats.Add(cat);
-            }
+            foreach (var cat in cats) context.Cats.Add(cat);
 
             context.SaveChanges();
 
-            var users = new User[]
+            var users = new[]
             {
                 new User
                 {
@@ -71,14 +62,11 @@ namespace animalShelter.Data
                     Email = "yogaiscool@gmail.com", Telephone = "2345678901", IsAdmin = true
                 }
             };
-            foreach (User u in users)
-            {
-                context.Users.Add(u);
-            }
+            foreach (var u in users) context.Users.Add(u);
 
             context.SaveChanges();
 
-            var catAdoptions = new CatAdoption[]
+            var catAdoptions = new[]
             {
                 new CatAdoption
                 {
@@ -87,26 +75,20 @@ namespace animalShelter.Data
                     AdoptionDate = DateTime.Parse("2019-12-14")
                 }
             };
-            foreach (CatAdoption catAdoption in catAdoptions)
-            {
-                context.CatAdoptions.Add(catAdoption);
-            }
+            foreach (var catAdoption in catAdoptions) context.CatAdoptions.Add(catAdoption);
 
             context.SaveChanges();
 
-            var dogAdoptions = new DogAdoption[]
+            var dogAdoptions = new[]
             {
-                new DogAdoption()
+                new DogAdoption
                 {
                     DogID = dogs.Single(i => i.DogID == 1).DogID,
                     UserID = users.Single(i => i.ID == 1).ID,
                     AdoptionDate = DateTime.Parse("2019-12-14")
                 }
             };
-            foreach (DogAdoption dogAdoption in dogAdoptions)
-            {
-                context.DogAdoptions.Add(dogAdoption);
-            }
+            foreach (var dogAdoption in dogAdoptions) context.DogAdoptions.Add(dogAdoption);
 
             context.SaveChanges();
         }

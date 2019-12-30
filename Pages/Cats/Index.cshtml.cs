@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using animalShelter.Data;
@@ -28,25 +27,18 @@ namespace animalShelter.Pages.Cats
             string currentFilter, string searchString, int? pageIndex)
         {
             CurrentSort = sortOrder;
-            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            NameSort = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
             if (searchString != null)
-            {
                 pageIndex = 1;
-            }
             else
-            {
                 searchString = currentFilter;
-            }
 
             CurrentFilter = searchString;
 
-            IQueryable<Cat> catsIq = from s in _context.Cats
+            var catsIq = from s in _context.Cats
                 select s;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                catsIq = catsIq.Where(d => d.Name.Contains(searchString));
-            }
+            if (!string.IsNullOrEmpty(searchString)) catsIq = catsIq.Where(d => d.Name.Contains(searchString));
 
             switch (sortOrder)
             {
@@ -64,7 +56,7 @@ namespace animalShelter.Pages.Cats
                     break;
             }
 
-            int pageSize = 6;
+            var pageSize = 6;
             Cats = await PaginatedList<Cat>.CreateAsync(
                 catsIq.AsNoTracking(), pageIndex ?? 1, pageSize);
         }

@@ -1,10 +1,8 @@
 @page
-@model ContactModel
+@using MailKit.Net.Smtp
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using MimeKit
-@using MailKit.Net.Smtp
-@using Microsoft.AspNetCore.Razor.TagHelpers
-@using Org.BouncyCastle.Ocsp
+@model ContactModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @functions
@@ -12,11 +10,7 @@
 
     public class ContactModel : PageModel
     {
-        string username = "";
-        string password = "";
-        string emailprivate = "";
-
-        public string PostedMessage { get; set; } = "";
+        public string MessageSent { get; set; } = "";
 
         [BindProperty]
         public string name { get; set; }
@@ -30,16 +24,15 @@
         public async Task<IActionResult> OnPostAsync()
         {
             SendMail(name, email, message);
-            return Redirect("/Contact/?pb=1");
+            return Redirect("/Contact/?sendSuccess");
         }
 
         public void OnGet(int id)
         {
-            if (Request.QueryString.HasValue && Request.QueryString.Value.Contains("pb=1"))
+            if (Request.QueryString.HasValue && Request.QueryString.Value.Contains("sendSuccess"))
             {
+                MessageSent = "Thanks for contacting us!";
             }
-            ViewData["PostedMessage"] = "Your message has been sent [viewdata]";
-            PostedMessage = "Your message has been sent [property]";
         }
 
         public void SendMail(string name, string email, string messageBody)
@@ -47,7 +40,7 @@
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(name, email));
             message.To.Add(new MailboxAddress("Bucks Animal Shelter", "bucksanimalshelter@gmail.com"));
-            message.Subject = "Test message";
+            message.Subject = "";
             message.Body = new TextPart("plain")
             {
                 Text = messageBody
@@ -60,14 +53,14 @@
                 client.Disconnect(true);
             }
         }
-    }}
+    }
+
+}
 
 @{
     ViewData["Title"] = "Contact Us";
 }
 <br/>
-<h3>@Model.PostedMessage</h3>
-<h3>@ViewData["PostedMessage"]</h3>
 <div class="row">
     <form method="post">
         <div class="form-group">
@@ -82,6 +75,9 @@
             <label asp-for="message" class="control-label">Message: </label>
             <input asp-for="message" class="form-control">
         </div>
-        <button type="submit" value="submit">Submit</button>
+        <button type="submit" value="submit">Send</button>
     </form>
 </div>
+<br/>
+
+<p class="text-success">@Model.MessageSent</p>

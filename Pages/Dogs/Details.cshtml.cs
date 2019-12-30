@@ -20,19 +20,13 @@ namespace animalShelter.Pages.Dogs
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             Dog = await _context.Dogs
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.DogID == id);
 
-            if (Dog == null)
-            {
-                return NotFound();
-            }
+            if (Dog == null) return NotFound();
 
             return Page();
         }

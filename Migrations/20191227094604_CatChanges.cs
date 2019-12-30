@@ -7,35 +7,35 @@ namespace animalShelter.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "ImageUrl",
-                table: "Dog");
+                "ImageUrl",
+                "Dog");
 
             migrationBuilder.DropColumn(
-                name: "ImageUrl",
-                table: "Cat");
+                "ImageUrl",
+                "Cat");
 
             migrationBuilder.AddColumn<string>(
-                name: "MainImagePath",
-                table: "Cat",
+                "MainImagePath",
+                "Cat",
                 nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "MainImagePath",
-                table: "Cat");
+                "MainImagePath",
+                "Cat");
 
             migrationBuilder.AddColumn<string>(
-                name: "ImageUrl",
-                table: "Dog",
-                type: "nvarchar(max)",
+                "ImageUrl",
+                "Dog",
+                "nvarchar(max)",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "ImageUrl",
-                table: "Cat",
-                type: "nvarchar(max)",
+                "ImageUrl",
+                "Cat",
+                "nvarchar(max)",
                 nullable: true);
         }
     }

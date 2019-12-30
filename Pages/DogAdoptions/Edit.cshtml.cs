@@ -1,21 +1,19 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using animalShelter.Data;
+using animalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using animalShelter.Data;
-using animalShelter.Models;
 
 namespace animalShelter.Pages.DogAdoptions
 {
     public class EditModel : PageModel
     {
-        private readonly animalShelter.Data.AnimalShelterContext _context;
+        private readonly AnimalShelterContext _context;
 
-        public EditModel(animalShelter.Data.AnimalShelterContext context)
+        public EditModel(AnimalShelterContext context)
         {
             _context = context;
         }
@@ -24,19 +22,13 @@ namespace animalShelter.Pages.DogAdoptions
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             DogAdoption = await _context.DogAdoptions
                 .Include(d => d.Dog)
                 .Include(d => d.User).FirstOrDefaultAsync(m => m.DogAdoptionID == id);
 
-            if (DogAdoption == null)
-            {
-                return NotFound();
-            }
+            if (DogAdoption == null) return NotFound();
 
             ViewData["DogID"] = new SelectList(_context.Dogs, "DogID", "Name");
             ViewData["UserID"] = new SelectList(_context.Users, "ID", "FullName");
@@ -47,10 +39,7 @@ namespace animalShelter.Pages.DogAdoptions
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
             _context.Attach(DogAdoption).State = EntityState.Modified;
 
@@ -61,13 +50,8 @@ namespace animalShelter.Pages.DogAdoptions
             catch (DbUpdateConcurrencyException)
             {
                 if (!DogAdoptionExists(DogAdoption.DogAdoptionID))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return RedirectToPage("./Index");
