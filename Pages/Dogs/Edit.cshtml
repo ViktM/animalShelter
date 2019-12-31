@@ -1,5 +1,4 @@
 @page
-@using Microsoft.EntityFrameworkCore.Infrastructure
 @model animalShelter.Pages.Dogs.EditModel
 
 @{
@@ -38,15 +37,11 @@
                 <input asp-for="Dog.Summary" class="form-control"/>
                 <span asp-validation-for="Dog.Summary" class="text-danger"></span>
             </div>
-
-            @*             @if (ModelValidator.Dog.MainImagePath != null) *@
-            @*             { *@
-            @*                 <div class="form-group"> *@
-            @*                     Exisiting Image: *@
-            @*                     <img src="uploads/@Model.Dog.MainImagePath" /> *@
-            @*                 </div> *@
-            @*             } *@
-
+            <div class="form-group">
+                <label asp-for="Dog.MainImage" class="control-label"></label>
+                <input asp-for="Dog.MainImage" class="form-control"/>
+                <span asp-validation-for="Dog.MainImage" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary"/>
             </div>

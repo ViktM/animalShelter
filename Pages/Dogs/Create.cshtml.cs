@@ -4,7 +4,6 @@ using animalShelter.Data;
 using animalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace animalShelter.Pages.Dogs
 {
@@ -42,7 +41,7 @@ namespace animalShelter.Pages.Dogs
             }
 
             if (await TryUpdateModelAsync<Dog>(emptyDog, "dog",
-                d => d.Name, d => d.Breed, d => d.Sex,
+                d => d.Name, d=>d.Dob, d => d.Breed, d => d.Sex,
                 d => d.Summary))
 
                 if (!ModelState.IsValid)
