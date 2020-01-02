@@ -39,7 +39,7 @@ namespace animalShelter.Pages.Dogs
             if (await TryUpdateModelAsync(
                 dogToUpdate,
                 "dog",
-                d => d.Name, d => d.Breed, d => d.Sex,
+                d => d.Name, d => d.Dob, d => d.Breed, d => d.Sex,
                 d => d.Summary))
 
             {

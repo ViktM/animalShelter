@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_.19.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_.19.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
@@ -35,6 +35,7 @@
         <e p="Debug" t="Include">
           <e p="netcoreapp3.0" t="Include">
             <e p="AnimalShelter.AssemblyInfo.cs" t="Include" />
+            <e p="AnimalShelter.RazorAssemblyInfo.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -205,6 +206,10 @@
         </e>
         <e p="Uploads" t="Include">
           <e p=".gitignore" t="Include" />
+          <e p="chihuahua-4681108_1280.jpg" t="Include" />
+          <e p="chow-chow-4294092__480.jpg" t="Include" />
+          <e p="christmas-dog-1937612__480.jpg" t="Include" />
+          <e p="jack-russel-4689069__480.webp" t="Include" />
         </e>
       </e>
     </e>

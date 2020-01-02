@@ -25,7 +25,7 @@ namespace animalShelter.Models
 
         [Display(Name = "Summary")] public string Summary { get; set; }
 
-        [Display(Name = "Dog Image")] public string MainImagePath { get; set; }
+        [Display(Name = "Cat Image")] public string MainImagePath { get; set; }
 
         [NotMapped]
         [Display(Name = "Main Image")]

@@ -42,6 +42,7 @@ namespace animalShelter.Pages.Dogs
 
             if (await TryUpdateModelAsync(emptyDog, "dog",
                 d => d.Name, d => d.Breed, d => d.Sex,
+
                 d => d.Summary))
 
                 if (!ModelState.IsValid)
