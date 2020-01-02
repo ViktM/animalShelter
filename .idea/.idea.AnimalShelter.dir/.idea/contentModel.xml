@@ -81,6 +81,10 @@
           <e p="List.cshtml" t="Include" />
           <e p="List.cshtml.cs" t="Include" />
         </e>
+        <e p="Contact" t="Include">
+          <e p="Index.cshtml" t="Include" />
+          <e p="Index.cshtml.cs" t="Include" />
+        </e>
         <e p="DogAdoptions" t="Include">
           <e p="Create.cshtml" t="Include" />
           <e p="Create.cshtml.cs" t="Include" />

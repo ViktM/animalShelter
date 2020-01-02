@@ -1,20 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using animalShelter.Data;
+using animalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using animalShelter.Data;
-using animalShelter.Models;
 
 namespace animalShelter.Pages.Users
 {
     public class DeleteModel : PageModel
     {
-        private readonly animalShelter.Data.AnimalShelterContext _context;
+        private readonly AnimalShelterContext _context;
 
-        public DeleteModel(animalShelter.Data.AnimalShelterContext context)
+        public DeleteModel(AnimalShelterContext context)
         {
             _context = context;
         }
@@ -23,27 +20,18 @@ namespace animalShelter.Pages.Users
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             User = await _context.Users.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (User == null)
-            {
-                return NotFound();
-            }
+            if (User == null) return NotFound();
 
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             User = await _context.Users.FindAsync(id);
 

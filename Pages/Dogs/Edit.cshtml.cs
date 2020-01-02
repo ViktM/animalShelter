@@ -21,17 +21,11 @@ namespace animalShelter.Pages.Dogs
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             Dog = await _context.Dogs.FirstOrDefaultAsync(m => m.DogID == id);
 
-            if (Dog == null)
-            {
-                return NotFound();
-            }
+            if (Dog == null) return NotFound();
 
             return Page();
         }
@@ -40,12 +34,9 @@ namespace animalShelter.Pages.Dogs
         {
             var dogToUpdate = await _context.Dogs.FindAsync(id);
 
-            if (dogToUpdate == null)
-            {
-                return NotFound();
-            }
+            if (dogToUpdate == null) return NotFound();
 
-            if (await TryUpdateModelAsync<Dog>(
+            if (await TryUpdateModelAsync(
                 dogToUpdate,
                 "dog",
                 d => d.Name, d => d.Dob, d => d.Breed, d => d.Sex,
@@ -56,10 +47,7 @@ namespace animalShelter.Pages.Dogs
                 return RedirectToPage("../Administration/Index");
             }
 
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
             _context.Attach(Dog).State = EntityState.Modified;
 
@@ -70,13 +58,8 @@ namespace animalShelter.Pages.Dogs
             catch (DbUpdateConcurrencyException)
             {
                 if (!DogExists(Dog.DogID))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return RedirectToPage("../Administration/Index");

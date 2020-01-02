@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace animalShelter.Pages.Account
 {
-    public class IndexModel : PageModel
+    public class ContactUs : PageModel
     {
         private readonly AnimalShelterContext _context;
 
-        public IndexModel(AnimalShelterContext context)
+        public ContactUs(AnimalShelterContext context)
         {
             _context = context;
         }

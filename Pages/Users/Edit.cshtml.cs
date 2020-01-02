@@ -1,21 +1,18 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using animalShelter.Data;
 using animalShelter.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace animalShelter.Pages.Users
 {
     public class EditModel : PageModel
     {
-        private readonly animalShelter.Data.AnimalShelterContext _context;
+        private readonly AnimalShelterContext _context;
 
-        public EditModel(animalShelter.Data.AnimalShelterContext context)
+        public EditModel(AnimalShelterContext context)
         {
             _context = context;
         }
@@ -24,17 +21,11 @@ namespace animalShelter.Pages.Users
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             User = await _context.Users.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (User == null)
-            {
-                return NotFound();
-            }
+            if (User == null) return NotFound();
 
             return Page();
         }
@@ -43,10 +34,7 @@ namespace animalShelter.Pages.Users
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
             _context.Attach(User).State = EntityState.Modified;
 
@@ -57,13 +45,8 @@ namespace animalShelter.Pages.Users
             catch (DbUpdateConcurrencyException)
             {
                 if (!UserExists(User.ID))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return RedirectToPage("./Index");

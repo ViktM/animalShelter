@@ -16,12 +16,12 @@ namespace animalShelter.Pages.Dogs
             _context = context;
         }
 
+        [BindProperty] public Dog Dog { get; set; }
+
         public IActionResult OnGet()
         {
             return Page();
         }
-
-        [BindProperty] public Dog Dog { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -40,14 +40,13 @@ namespace animalShelter.Pages.Dogs
                 }
             }
 
-            if (await TryUpdateModelAsync<Dog>(emptyDog, "dog",
-                d => d.Name, d=>d.Dob, d => d.Breed, d => d.Sex,
+            if (await TryUpdateModelAsync(emptyDog, "dog",
+                d => d.Name, d => d.Breed, d => d.Sex,
+
                 d => d.Summary))
 
                 if (!ModelState.IsValid)
-                {
                     return Page();
-                }
 
             _context.Dogs.Add(emptyDog);
             await _context.SaveChangesAsync();

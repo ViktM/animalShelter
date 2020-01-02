@@ -21,27 +21,18 @@ namespace animalShelter.Pages.Cats
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             Cat = await _context.Cats.FirstOrDefaultAsync(m => m.CatID == id);
 
-            if (Cat == null)
-            {
-                return NotFound();
-            }
+            if (Cat == null) return NotFound();
 
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
             _context.Attach(Cat).State = EntityState.Modified;
 
@@ -52,13 +43,8 @@ namespace animalShelter.Pages.Cats
             catch (DbUpdateConcurrencyException)
             {
                 if (!CatExists(Cat.CatID))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return RedirectToPage("./Index");

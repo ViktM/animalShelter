@@ -15,19 +15,16 @@ namespace animalShelter.Pages.Cats
             _context = context;
         }
 
+        [BindProperty] public Cat Cat { get; set; }
+
         public IActionResult OnGet()
         {
             return Page();
         }
 
-        [BindProperty] public Cat Cat { get; set; }
-
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
             _context.Cats.Add(Cat);
             await _context.SaveChangesAsync();

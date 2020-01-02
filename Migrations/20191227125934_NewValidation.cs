@@ -7,32 +7,32 @@ namespace animalShelter.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "LastName",
-                table: "User",
+                "LastName",
+                "User",
                 maxLength: 20,
                 nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)");
 
             migrationBuilder.AlterColumn<string>(
-                name: "FirstName",
-                table: "User",
+                "FirstName",
+                "User",
                 maxLength: 20,
                 nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)");
 
             migrationBuilder.AlterColumn<string>(
-                name: "Name",
-                table: "Dog",
+                "Name",
+                "Dog",
                 maxLength: 20,
                 nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)");
 
             migrationBuilder.AlterColumn<string>(
-                name: "Name",
-                table: "Cat",
+                "Name",
+                "Cat",
                 maxLength: 20,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -42,33 +42,33 @@ namespace animalShelter.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "LastName",
-                table: "User",
-                type: "nvarchar(max)",
+                "LastName",
+                "User",
+                "nvarchar(max)",
                 nullable: false,
                 oldClrType: typeof(string),
                 oldMaxLength: 20);
 
             migrationBuilder.AlterColumn<string>(
-                name: "FirstName",
-                table: "User",
-                type: "nvarchar(max)",
+                "FirstName",
+                "User",
+                "nvarchar(max)",
                 nullable: false,
                 oldClrType: typeof(string),
                 oldMaxLength: 20);
 
             migrationBuilder.AlterColumn<string>(
-                name: "Name",
-                table: "Dog",
-                type: "nvarchar(max)",
+                "Name",
+                "Dog",
+                "nvarchar(max)",
                 nullable: false,
                 oldClrType: typeof(string),
                 oldMaxLength: 20);
 
             migrationBuilder.AlterColumn<string>(
-                name: "Name",
-                table: "Cat",
-                type: "nvarchar(max)",
+                "Name",
+                "Cat",
+                "nvarchar(max)",
                 nullable: false,
                 oldClrType: typeof(string),
                 oldMaxLength: 20);

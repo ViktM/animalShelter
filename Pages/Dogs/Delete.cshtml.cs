@@ -21,41 +21,26 @@ namespace animalShelter.Pages.Dogs
 
         public async Task<IActionResult> OnGetAsync(int? id, bool? saveChangesError = false)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             Dog = await _context.Dogs
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.DogID == id);
 
-            if (Dog == null)
-            {
-                return NotFound();
-            }
+            if (Dog == null) return NotFound();
 
-            if (saveChangesError.GetValueOrDefault())
-            {
-                ErrorMessage = "Delete failed. Try again";
-            }
+            if (saveChangesError.GetValueOrDefault()) ErrorMessage = "Delete failed. Try again";
 
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var dog = await _context.Dogs.FindAsync(id);
 
-            if (dog == null)
-            {
-                return NotFound();
-            }
+            if (dog == null) return NotFound();
 
             try
             {

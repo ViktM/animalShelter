@@ -19,12 +19,7 @@ namespace animalShelter.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
-        [Display(Name = "User")]
-        public string FullName
-        {
-            get { return LastName + ", " + FirstName; }
-        }
+        [Required] [Display(Name = "User")] public string FullName => LastName + ", " + FirstName;
 
         [Required] [Display(Name = "Address")] public string AddressLine1 { get; set; }
 
