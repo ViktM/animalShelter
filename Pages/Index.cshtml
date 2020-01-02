@@ -8,14 +8,36 @@
     <h1 class="display-4">Welcome to our Animal Shelter</h1>
     <br/>
     <p>Learn about our animals...</p>
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2019/12/20/15/30/dog-4708726_1280.jpg"
+                 alt="Puppy Xmas">
+            <div class="card-body">
+                <h5 class="card-title">Donate to us</h5>
+                <p class="card-text">Please donate some money so we can get a lot of toys and food</p>
+                <a asp-page="/Payment" class="btn btn-primary">See options here!</a>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://image.shutterstock.com/image-photo/senior-man-dogs-cat-on-600w-447964363.jpg"
+                 alt="Puppy Xmas">
+            <div class="card-body">
+                <h5 class="card-title">Volunteers and Fosters Wanted!</h5>
+                <p class="card-text">We appreciate every little help to keep our pets happy and socialised</p>
+                <a asp-page="/Contact/Index" class="btn btn-primary">Get in touch here!</a>
+            </div>
+        </div>
 
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2019/12/20/15/30/dog-4708726_1280.jpg"
-             alt="Puppy Xmas">
-        <div class="card-body">
-            <h5 class="card-title">Donate to us</h5>
-            <p class="card-text">Please donate some money so we can get a lot of toys and food</p>
-            <a asp-page="/Payment" class="btn btn-primary">See options here!</a>
+        <div class="col-1"></div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://image.shutterstock.com/image-photo/hands-paws-all-family-members-600w-714723928.jpg"
+                 alt="Puppy Xmas">
+            <div class="card-body">
+                <h5 class="card-title">Adoption details</h5>
+                <p class="card-text">Please read more here</p>
+                <a asp-page="/About/Index" class="btn btn-primary">See options here!</a>
+            </div>
         </div>
     </div>
 </div>

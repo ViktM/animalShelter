@@ -5,7 +5,6 @@
     ViewData["Title"] = "Dogs";
 }
 <br/>
-
 <p>
     <a asp-page="Create">Create New Dog</a>
 </p>
@@ -15,12 +14,10 @@
     <tr class="table-dark">
         <th>
             <a asp-page="./List" asp-route-sortOrder="@Model.NameSort">
-
                 @Html.DisplayNameFor(model => model.Dogs[0].Name)</a>
         </th>
         <th>
             <a asp-page="./List" asp-route-sortOrder="@Model.DateSort">
-
                 @Html.DisplayNameFor(model => model.Dogs[0].Dob)</a>
         </th>
         <th>

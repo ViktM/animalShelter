@@ -35,7 +35,7 @@
             }
         }
 
-        public void SendMail(string name, string email, string messageBody)
+        private void SendMail(string name, string email, string messageBody)
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(name, email));
