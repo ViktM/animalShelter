@@ -54,12 +54,3 @@ namespace animalShelter.Pages.Dogs
         }
     }
 }
-
-
-// Name
-// Dob
-// Breed
-// Sex
-// Summary
-// MainImagePath
-// MainImage

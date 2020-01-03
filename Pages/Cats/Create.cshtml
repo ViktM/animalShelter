@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Cat.Name" class="control-label"></label>
@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cat.MainImage" class="control-label"></label>
-                <input asp-for="Cat.MainImage" class="form-control"/>
+                <input asp-for="Cat.MainImage" class="form-control" type="file" accept="image/*"/>	
                 <span asp-validation-for="Cat.MainImage" class="text-danger"></span>
             </div>
             <div class="form-group">
