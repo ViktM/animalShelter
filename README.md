@@ -1,5 +1,7 @@
 # Animal Shelter
 
+This web application is designed for a small animal shelter. It enables all users to browse animals available for adoption. Admin users can use full CRUD functionality to maintain a database of animals available for adoption, users and to track adoptions.
+
 # Prerequisites
 
 Minimum requirements and recommended stack to run the app:
