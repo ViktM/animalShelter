@@ -20,7 +20,7 @@ Minimum requirements and recommended stack to run the app:
 - JetBrains Rider v2019.2.2
 
 
-Docker Terminal Command:\
+Docker Terminal Command:
 
 docker run -e 'ACCEPT_EULA=Y' \
 -e 'SA_PASSWORD=P@ssw0rd!' \
