@@ -67,7 +67,7 @@
     stripe.redirectToCheckout({
       items: [{sku: 'sku_GNvCSExh60khi5', quantity: 1}],
       successUrl: 'https://localhost:5001/',
-      cancelUrl: 'https://localhost:5001/',
+      cancelUrl: 'https://localhost:5001/Error',
     })
     .then(function (result) {
       if (result.error) {
@@ -89,8 +89,8 @@
   checkoutButton.addEventListener('click', function () {
     stripe.redirectToCheckout({
       items: [{sku: 'sku_GQNLhvoyVAMeMl', quantity: 1}],
-      successUrl: 'https://your-website.com/success',
-      cancelUrl: 'https://your-website.com/canceled',
+      successUrl: 'https://localhost:5001/',
+      cancelUrl: 'https://localhost:5001/Error',
     })
     .then(function (result) {
       if (result.error) {
@@ -110,8 +110,8 @@
   checkoutButton.addEventListener('click', function () {
     stripe.redirectToCheckout({
       items: [{sku: 'sku_GQNhjxiFY42UvW', quantity: 1}],
-      successUrl: 'https://your-website.com/success',
-      cancelUrl: 'https://your-website.com/canceled',
+      successUrl: 'https://localhost:5001/',
+      cancelUrl: 'https://localhost:5001/Error',
     })
     .then(function (result) {
       if (result.error) {
