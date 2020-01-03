@@ -2,7 +2,7 @@
 
 This web application is designed for a small animal shelter. It enables all users to browse animals available for adoption. Admin users can use full CRUD functionality to maintain a database of animals available for adoption, users and to track adoptions.
 
-#Description
+# Description
 
 This is .Net application in C# using Microsoft SQL database hosted in a Docker container. Seed data is provided.   
 
